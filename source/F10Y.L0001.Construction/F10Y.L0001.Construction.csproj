@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup Label="Main">
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
@@ -16,8 +16,7 @@
     <RepositoryUrl>https://github.com/Functionairy/F10Y.L0001.git</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\F10Y.L0001\F10Y.L0001.csproj" />
-    <ProjectReference Include="..\..\..\F10Y.T0006\source\F10Y.T0006\F10Y.T0006.csproj" />
+    <ProjectReference Include="..\F10Y.L0001.Q000\F10Y.L0001.Q000.csproj" />
     <ProjectReference Include="..\..\..\F10Y.T0005\source\F10Y.T0005\F10Y.T0005.csproj" />
   </ItemGroup>
 </Project>

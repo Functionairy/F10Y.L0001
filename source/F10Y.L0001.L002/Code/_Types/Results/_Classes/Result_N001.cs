@@ -1,0 +1,16 @@
+﻿using System;
+
+using F10Y.T0004;
+
+
+namespace F10Y.L0001.L002.N001
+{
+    /// <inheritdoc cref="IResult{T}"/>
+    [DataTypeMarker]
+    public class Result<T> : IResult<T>
+    {
+        public bool Success { get; set; }
+        public T Value { get; set; }
+        public string Message { get; set; }
+    }
+}

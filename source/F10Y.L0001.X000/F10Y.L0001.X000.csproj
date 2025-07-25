@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Main">
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <NoWarn>1573;1587;1591;IDE0130</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Package">
+    <Version>1.0.0</Version>
+    <Authors>DCoats</Authors>
+    <Company>Functionairy</Company>
+    <Copyright>Copyright (c) Functionairy 2025</Copyright>
+    <Description>System-integrated extensions library for the F10Y.L0001 Functionairy-opinioned but generally applicable .NET Standard 2.1 foundation library.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\F10Y.L0001.L000\F10Y.L0001.L000.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,6 +1,7 @@
 using System;
 
 using F10Y.T0002;
+using F10Y.T0011;
 
 
 namespace F10Y.L0001
@@ -12,60 +13,14 @@ namespace F10Y.L0001
     /// Related prior work: R5T.F0091.
     /// </remarks>
     [FunctionsMarker]
-    public partial interface IFilesDirectoryOperator
+    public partial interface IFilesDirectoryOperator :
+        L001.IFilesDirectoryOperator
     {
-        public string Get_FilesDirectoryPath_FromExecutableDirectoryPath(string executableDirectoryPath)
-        {
-            var output = Instances.PathOperator.Get_DirectoryPath(
-                executableDirectoryPath,
-                Instances.DirectoryNames.Files);
+#pragma warning disable IDE1006 // Naming Styles
 
-            return output;
-        }
+        [Ignore]
+        public L001.IFilesDirectoryOperator _L001 => L001.FilesDirectoryOperator.Instance;
 
-        public string Get_FilesDirectoryPath()
-        {
-            var executableDirectoryPath = Instances.ExecutablePathOperator.Get_ExecutableDirectoryPath();
-
-            var output = this.Get_FilesDirectoryPath_FromExecutableDirectoryPath(executableDirectoryPath);
-            return output;
-        }
-
-        public string Get_ProjectSpecificFilesDirectoryPath(
-            string filesDirectoryPath,
-            string projectName)
-        {
-            var output = Instances.PathOperator.Get_DirectoryPath(
-                filesDirectoryPath,
-                projectName);
-
-            return output;
-        }
-
-        public string Get_ProjectSpecificFilesDirectoryPath(string projectName)
-        {
-            var projectDirectoryName = Instances.DirectoryNameOperator.Ensure_IsValid(projectName);
-
-            var filesDirectoryPath = this.Get_FilesDirectoryPath();
-
-            var output = this.Get_ProjectSpecificFilesDirectoryPath(
-                filesDirectoryPath,
-                projectDirectoryName);
-
-            return output;
-        }
-
-        public string Get_Path_FromFilesDirectoryRelativePath(
-            string projectName,
-            string path_FilesDirectoryRelative)
-        {
-            var projectSpecificFilesDirectoryPath = this.Get_ProjectSpecificFilesDirectoryPath(projectName);
-
-            var output = Instances.PathOperator.Get_Path(
-                projectSpecificFilesDirectoryPath,
-                path_FilesDirectoryRelative);
-
-            return output;
-        }
+#pragma warning restore IDE1006 // Naming Styles
     }
 }
