@@ -6,7 +6,7 @@ using Instances = F10Y.L0001.X000.Instances;
 
 namespace System.Linq
 {
-    public static  class StringExtensions
+    public static class StringExtensions
     {
         public static string Entab(this string @string)
         {
@@ -20,5 +20,25 @@ namespace System.Linq
             var output = Instances.StringOperator.Entab(strings);
             return output;
         }
+
+        public static string Except_First(this string @string)
+        {
+            return Instances.StringOperator.Except_First(@string);
+        }
+
+        public static string Except_FirstTwo(this string @string)
+        {
+            var output = Instances.StringOperator.Except_FirstTwo(@string);
+            return output;
+        }
+    }
+}
+
+
+namespace F10Y.L0001.X000
+{
+    public static class StringExtensions
+    {
+        
     }
 }

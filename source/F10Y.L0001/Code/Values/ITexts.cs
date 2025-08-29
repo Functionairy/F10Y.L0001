@@ -53,9 +53,6 @@ namespace F10Y.L0001
         /// </summary>
         public string Null => this.null_Standard;
 
-
-#pragma warning restore IDE1006 // Naming Styles
-
         /// <summary>
         /// <para><value>ALL</value></para>
         /// </summary>
@@ -89,12 +86,22 @@ namespace F10Y.L0001
         public string Exclusive => Exclusive_Constant;
 
         /// <summary>
+        /// <para><value>exists</value></para>
+        /// </summary>
+        public string exists => "exists";
+
+        /// <summary>
         /// <para><value>Inclusive</value></para>
         /// </summary>
         public const string Inclusive_Constant = "Inclusive";
 
         /// <inheritdoc cref="Inclusive_Constant"/>
         public string Inclusive => Inclusive_Constant;
+
+        /// <summary>
+        /// <para><value>missing</value></para>
+        /// </summary>
+        public string missing => "missing";
 
         /// <summary>
         /// <para><value>Non-Contiguous</value></para>
@@ -159,5 +166,7 @@ namespace F10Y.L0001
 
         /// <inheritdoc cref="Super_Constant"/>
         public string Super => Super_Constant;
+
+#pragma warning restore IDE1006 // Naming Styles
     }
 }

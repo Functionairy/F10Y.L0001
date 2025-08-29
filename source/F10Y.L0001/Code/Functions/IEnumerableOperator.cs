@@ -19,7 +19,7 @@ namespace F10Y.L0001
         public L000.IEnumerableOperator _L000 => L000.EnumerableOperator.Instance;
 
         [Ignore]
-        public L0000.IEnumerableOperator _L0000 => L0000.EnumerableOperator.Instance;
+        public new L0000.IEnumerableOperator _L0000 => L0000.EnumerableOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 

@@ -16,5 +16,16 @@ namespace F10Y.L0001
         public Z000.ISeeds _Z000 => Z000.Seeds.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
+
+
+        /// <summary>
+        /// Chooses <see cref="Z000.ISeeds.Pi_Constant"/> as the Functionairy standard.
+        /// </summary>
+        public const int Standard_Constant = Z000.ISeeds.Pi_Constant;
+
+        /// <summary>
+        /// Chooses <see cref="Z000.ISeeds.Pi"/> as the Functionairy standard.
+        /// </summary>
+        public int Standard => this.Pi;
     }
 }

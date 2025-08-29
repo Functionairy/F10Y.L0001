@@ -13,5 +13,11 @@ namespace System.Linq
             var output = Instances.EnumerableOperator.Now(enumerable);
             return output;
         }
+
+        public static T Second<T>(this IEnumerable<T> enumerable)
+        {
+            var output = Instances.EnumerableOperator.Get_Second(enumerable);
+            return output;
+        }
     }
 }
