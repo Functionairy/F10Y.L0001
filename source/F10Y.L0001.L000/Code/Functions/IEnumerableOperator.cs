@@ -20,6 +20,17 @@ namespace F10Y.L0001.L000
 #pragma warning restore IDE1006 // Naming Styles
 
 
+        public IEnumerable<IEnumerable<T>> OrderBy_First<T>(IEnumerable<IEnumerable<T>> values)
+        {
+            var valuesAndFirst = values
+                .Select(x => (First: x.FirstOrDefault(), Values: x))
+                .OrderBy(x => x.First)
+                .Select(x => x.Values)
+                ;
+
+            return valuesAndFirst;
+        }
+
         public IEnumerable<T> Separate<T>(
             IEnumerable<T> enumerable,
             T separator)

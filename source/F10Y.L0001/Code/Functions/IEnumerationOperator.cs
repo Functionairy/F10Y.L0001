@@ -7,7 +7,8 @@ using F10Y.T0011;
 namespace F10Y.L0001
 {
     [FunctionsMarker]
-    public partial interface IEnumerationOperator
+    public partial interface IEnumerationOperator :
+        L0000.IEnumerationOperator
     {
 #pragma warning disable IDE1006 // Naming Styles
 

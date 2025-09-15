@@ -155,6 +155,9 @@ namespace F10Y.L0001.L000
             return output;
         }
 
+        public IEnumerable<IEnumerable<string>> OrderBy_First(IEnumerable<IEnumerable<string>> values)
+            => Instances.EnumerableOperator.OrderBy_First(values);
+
         /// <summary>
         /// Partition a string into parts given a splitting index.
         /// Exclusive in that the character at the specified index is not included in either output part.

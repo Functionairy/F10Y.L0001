@@ -11,10 +11,25 @@ namespace F10Y.L0001.L002
     [FunctionsMarker]
     public partial interface IResultOperator
     {
-        public IResultOperator<TInput, TOutput> For<TInput, TOutput>()
+        N002.Result<T> Failure<T>(Exception exception)
+            => new N002.Result<T>
+            {
+                Success = false,
+                Value = default,
+                Exception = exception,
+            };
+
+        IResultOperator<TInput, TOutput> For<TInput, TOutput>()
             => ResultOperator<TInput, TOutput>.Instance;
 
-        public IEnumerable<string> Get_Lines_ForOutput<T>(
+        N002.Result<T> Success<T>(T value)
+            => new N002.Result<T>
+            {
+                Success = true,
+                Value = value
+            };
+
+        IEnumerable<string> Get_Lines_ForOutput<T>(
             N003.Result<
             IEnumerable<string>,
             N002.IFailed<T>
@@ -28,7 +43,7 @@ namespace F10Y.L0001.L002
             return output;
         }
 
-        public IEnumerable<string> Get_Lines_ForOutput<T>(
+        IEnumerable<string> Get_Lines_ForOutput<T>(
             N003.Result<
             IEnumerable<string>,
             N002.IFailed<T>[]
@@ -42,13 +57,19 @@ namespace F10Y.L0001.L002
 
             return output;
         }
+
+        bool Is_Success<T>(N002.IResult<T> result)
+            => result.Success;
+
+        bool Is_NotSuccess<T>(N002.IResult<T> result)
+            => !this.Is_Success(result);
     }
 
 
     [FunctionsMarker]
     public partial interface IResultOperator<TInput, TOutput>
     {
-        public N006.Result<TInput, TOutput> From(
+        N006.Result<TInput, TOutput> From(
             bool success,
             TInput input,
             TOutput output,
@@ -61,7 +82,7 @@ namespace F10Y.L0001.L002
                 Success = success,
             };
 
-        public N006.Result<TInput, TOutput> Success(
+        N006.Result<TInput, TOutput> Success(
             TInput input,
             TOutput output)
             => this.From(
@@ -70,7 +91,7 @@ namespace F10Y.L0001.L002
                 output,
                 Instances.Exceptions.None);
 
-        public N006.Result<TInput, TOutput> Failure(
+        N006.Result<TInput, TOutput> Failure(
             TInput input,
             Exception exception)
             => this.From(

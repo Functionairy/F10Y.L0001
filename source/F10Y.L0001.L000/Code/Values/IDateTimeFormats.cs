@@ -21,6 +21,12 @@ namespace F10Y.L0001.L000
 #pragma warning disable IDE1006 // Naming Styles
 
         /// <summary>
+        /// 20 Mar 2025 14:49
+        /// <para><value>dd MMM yyyy HH:mm</value></para>
+        /// </summary>
+        public string dd_MMM_yyyy_HH_Colon_mm => "dd MMM yyyy HH:mm";
+
+        /// <summary>
         /// <para><value>yyyyMMdd HHmmss</value></para>
         /// </summary>
         public string yyyyMMdd_HHmmss => "yyyyMMdd HHmmss";

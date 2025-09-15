@@ -36,7 +36,7 @@ namespace F10Y.L0001.L000
 
             var assemblyDocumentationFileName = Instances.FileNameOperator.Get_FileName(
                 assemblyFileNameStem,
-                Instances.FileExtensions.Xml);
+                Instances.FileExtensions.xml);
 
             return assemblyDocumentationFileName;
         }
