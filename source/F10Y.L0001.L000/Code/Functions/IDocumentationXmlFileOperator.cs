@@ -10,6 +10,23 @@ namespace F10Y.L0001.L000
     [FunctionsMarker]
     public partial interface IDocumentationXmlFileOperator
     {
+        async Task<bool> Is_DocumentationFile(string xmlFilePath)
+        {
+            var possibleDocumentationElement = await this.Load_AsElement(xmlFilePath);
+
+            var output = Instances.DocumentationXmlOperator.Is_DocumentationElement(possibleDocumentationElement);
+            return output;
+        }
+
+        async Task<(bool Is_DocumentationFile, XElement Element)> Is_DocumentationFile_ReturnElement(string xmlFilePath)
+        {
+            var possibleDocumentationElement = await this.Load_AsElement(xmlFilePath);
+
+            var isDocumentationElement = Instances.DocumentationXmlOperator.Is_DocumentationElement(possibleDocumentationElement);
+
+            return (isDocumentationElement, possibleDocumentationElement);
+        }
+
         /// <summary>
         /// Loads the .NET documentation XML file as an <see cref="XDocument"/>.
         /// </summary>
@@ -20,7 +37,7 @@ namespace F10Y.L0001.L000
         /// However, the structure of the documentation file itself adds extra indentation to each member documentation that must be subtracted out.
         /// </para>
         /// </remarks>
-        public Task<XDocument> Load_AsDocument(string documentationXmlFilePath)
+        Task<XDocument> Load_AsDocument(string documentationXmlFilePath)
             => Instances.XDocumentOperator.Load(
                 documentationXmlFilePath,
                 // Need to preserve whitespace inside of documentation comments.
@@ -30,7 +47,7 @@ namespace F10Y.L0001.L000
         /// Loads the .NET documentation XML file as an <see cref="XElement"/>.
         /// </summary>
         /// <inheritdoc cref="Load_AsDocument(string)" path="/remarks"/>
-        public async Task<XElement> Load_AsElement(string documentationXmlFilePath)
+        async Task<XElement> Load_AsElement(string documentationXmlFilePath)
         {
             var document = await this.Load_AsDocument(documentationXmlFilePath);
 
@@ -45,7 +62,7 @@ namespace F10Y.L0001.L000
         /// <inheritdoc cref="Load_AsDocument(string)" path="/remarks"/>
         /// </para>
         /// </remarks>
-        public Task<XElement> Load(string documentationXmlFilePath)
+        Task<XElement> Load(string documentationXmlFilePath)
             => this.Load_AsElement(documentationXmlFilePath);
     }
 }

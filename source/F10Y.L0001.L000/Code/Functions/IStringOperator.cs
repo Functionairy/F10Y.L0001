@@ -270,5 +270,17 @@ namespace F10Y.L0001.L000
                 index,
                 @string);
         }
+
+        /// <summary>
+        /// Chooses <see cref="F10Y.L0001.L000.IStringOperator.Partition_Exclusive(int, string)"/> as the default.
+        /// </summary>
+        public (string firstPart, string secondPart) Split_OnIndex(
+            int index,
+            string @string)
+        {
+            return this.Partition_Exclusive(
+                index,
+                @string);
+        }
     }
 }

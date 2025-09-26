@@ -9,6 +9,7 @@ namespace F10Y.L0001.L000
         public static L0000.ICancellationTokens CancellationTokens => L0000.CancellationTokens.Instance;
         public static L0000.ICharacterOperator CharacterOperator => L0000.CharacterOperator.Instance;
         public static L0000.ICharacters Characters => L0000.Characters.Instance;
+        public static L0000.IComparerOperator ComparerOperator => L0000.ComparerOperator.Instance;
         public static IDateTimeFormats DateTimeFormats => L000.DateTimeFormats.Instance;
         public static IDateTimeFormatTemplates DateTimeFormatTemplates => L000.DateTimeFormatTemplates.Instance;
         public static IDocumentationFileOperator DocumentationFileOperator => L000.DocumentationFileOperator.Instance;

@@ -90,18 +90,29 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        public TimeSpan InTimingContext(
+        public TimeSpan In_TimingContext(
             Action action,
             Action<TimeSpan> durationConsumer)
         {
-            var duration = this.InTimingContext(action);
+            var duration = this.In_TimingContext(action);
 
             durationConsumer(duration);
 
             return duration;
         }
 
-        public TimeSpan InTimingContext(Action action)
+        public TOut In_TimingContext_ForFunction<TOut>(
+            Func<TOut> function,
+            out TimeSpan duration)
+        {
+            var output = this.MeasureDuration(
+                function,
+                out duration);
+
+            return output;
+        }
+
+        public TimeSpan In_TimingContext(Action action)
             => this.MeasureDuration(action);
 
         public Task<TimeSpan> In_TimingContext(Func<Task> action)

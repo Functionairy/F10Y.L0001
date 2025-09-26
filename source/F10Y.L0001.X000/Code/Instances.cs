@@ -6,6 +6,7 @@ namespace F10Y.L0001.X000
     public static class Instances
     {
         public static L0000.IArrayOperator ArrayOperator => L0000.ArrayOperator.Instance;
+        public static L0000.ICollectionOperator CollectionOperator => L0000.CollectionOperator.Instance;
         public static L0000.IDictionaryOperator DictionaryOperator => L0000.DictionaryOperator.Instance;
         public static L000.IEnumerableOperator EnumerableOperator => L000.EnumerableOperator.Instance;
         public static L0000.IFileSystemInfoOperator FileSystemInfoOperator => L0000.FileSystemInfoOperator.Instance;

@@ -41,8 +41,43 @@ namespace System.Linq
             return output;
         }
 
+        public static string Join(this IEnumerable<string> strings,
+            char separator)
+        {
+            var output = Instances.StringOperator.Join(
+                separator,
+                strings);
+
+            return output;
+        }
+
+        public static string Join(this IEnumerable<string> strings,
+            string separator)
+        {
+            var output = Instances.StringOperator.Join(
+                separator,
+                strings);
+
+            return output;
+        }
+
+        public static string Join(this IEnumerable<string> strings)
+        {
+            var output = Instances.StringOperator.Join(
+                Instances.Strings.Empty,
+                strings);
+
+            return output;
+        }
+
         public static string Join_Lines(this IEnumerable<string> strings)
             => Instances.TextOperator.Join_Lines(strings);
+
+        public static string Join_ToString(this IEnumerable<string> strings)
+            => Instances.StringOperator.Join_ToString(strings);
+
+        public static string Join_ToString(this string[] strings)
+            => Instances.StringOperator.Join_ToString(strings);
 
         public static IEnumerable<string> Order_Alphabetically(this IEnumerable<string> strings)
         {
@@ -63,6 +98,12 @@ namespace System.Linq
         public static IEnumerable<IEnumerable<string>> OrderBy_First(this IEnumerable<IEnumerable<string>> values)
             => Instances.StringOperator.OrderBy_First(values);
 
+        public static string Prefix_With(this string @string,
+            char prefix)
+            => Instances.StringOperator.Prefix_With(
+                prefix,
+                @string);
+
         public static IEnumerable<string> Separate_Lines(this IEnumerable<string> lines)
             => Instances.StringOperator.Separate_Lines(lines);
 
@@ -74,6 +115,44 @@ namespace System.Linq
             => Instances.StringOperator.Separate_Many_Lines(
                 values,
                 selector);
+
+        public static string Wrap(this string @string,
+            string prefix,
+            string suffix)
+        {
+            return Instances.StringOperator.Wrap(
+                @string,
+                prefix,
+                suffix);
+        }
+
+        /// <inheritdoc cref="F10Y.L0000.IStringOperator.Trim(string)"/>
+        public static IEnumerable<string> Trim(this IEnumerable<string> strings)
+        {
+            var output = Instances.StringOperator.Trim(strings);
+            return output;
+        }
+
+        /// <inheritdoc cref="F10Y.L0000.IStringOperator.Trim(string)"/>
+        public static IEnumerable<string> Trim(this IEnumerable<string> strings,
+            params char[] characters)
+        {
+            var output = Instances.StringOperator.Trim(
+                strings,
+                characters);
+
+            return output;
+        }
+
+        public static string Wrap(this string @string,
+            char prefix,
+            char suffix)
+        {
+            return Instances.StringOperator.Wrap(
+                @string,
+                prefix,
+                suffix);
+        }
     }
 }
 

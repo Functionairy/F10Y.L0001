@@ -18,6 +18,25 @@ namespace F10Y.L0001.L000
 #pragma warning restore IDE1006 // Naming Styles
 
 
+        int Write_StatusMessage_IndexOfCount(
+            int index,
+            int count)
+        {
+            this.Write_Line($"{index++}/{count}");
+
+            return index;
+        }
+
+        int Write_StatusMessage_IndexOfCount(
+            int index,
+            int count,
+            string message)
+        {
+            this.Write_Line($"{index++}/{count}: {message}");
+
+            return index;
+        }
+
         void Press_AnyKeyToClose()
         {
             this.Write(Instances.Texts.PressAnyKeyToClose);
