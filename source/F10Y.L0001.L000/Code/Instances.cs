@@ -6,6 +6,7 @@ namespace F10Y.L0001.L000
     public static class Instances
     {
         public static L0000.IAssemblyOperator AssemblyOperator => L0000.AssemblyOperator.Instance;
+        public static IBytesOperator BytesOperator => L000.BytesOperator.Instance;
         public static L0000.ICancellationTokens CancellationTokens => L0000.CancellationTokens.Instance;
         public static L0000.ICharacterOperator CharacterOperator => L0000.CharacterOperator.Instance;
         public static L0000.ICharacters Characters => L0000.Characters.Instance;
@@ -18,6 +19,7 @@ namespace F10Y.L0001.L000
         public static IDocumentationXmlNodeNames DocumentationXmlNodeNames => L000.DocumentationXmlNodeNames.Instance;
         public static IDocumentationXmlOperator DocumentationXmlOperator => L000.DocumentationXmlOperator.Instance;
         public static IEnumerableOperator EnumerableOperator => L000.EnumerableOperator.Instance;
+        public static L0000.IEnumerationOperator EnumerationOperator => L0000.EnumerationOperator.Instance;
         public static IFileExtensions FileExtensions => L000.FileExtensions.Instance;
         public static L0000.IFileNameOperator FileNameOperator => L0000.FileNameOperator.Instance;
         public static L0000.IFileStreamOperator FileStreamOperator => L0000.FileStreamOperator.Instance;
