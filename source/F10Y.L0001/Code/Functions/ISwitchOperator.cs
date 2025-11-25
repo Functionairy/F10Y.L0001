@@ -25,14 +25,6 @@ namespace F10Y.L0001
             return output;
         }
 
-        /// <inheritdoc cref="IEnumerationOperator.Get_UnexpectedEnumerationValueException{TEnum}(TEnum)"/>
-        public Exception Get_UnexpectedEnumerationValueException<TEnum>(TEnum unexpectedValue)
-            where TEnum : Enum
-        {
-            var output = Instances.EnumerationOperator.Get_UnexpectedEnumerationValueException(unexpectedValue);
-            return output;
-        }
-
         public Exception Get_UnrecognizedEnumerationValueException<TEnum>(string representation)
             where TEnum : Enum
         {

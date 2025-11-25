@@ -24,8 +24,5 @@ namespace System.Linq
 
         public static Dictionary<TValue, TKey> Invert<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
             => Instances.DictionaryOperator.Invert(dictionary);
-
-        public static Dictionary<TKey, TValue> To_Dictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> pairs)
-            => Instances.DictionaryOperator.To_Dictionary(pairs);
     }
 }

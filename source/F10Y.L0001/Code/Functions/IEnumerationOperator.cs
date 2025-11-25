@@ -16,21 +16,5 @@ namespace F10Y.L0001
         public L0000.IEnumerationOperator _L0000 => L0000.EnumerationOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
-
-
-        /// <inheritdoc cref="IExceptionMessageOperator.Get_UnexpectedEnumerationValueExceptionMessage{TEnum}(TEnum)"/>
-        public string Get_UnexpectedEnumerationValueExceptionMessage<TEnum>(TEnum unexpectedValue)
-            where TEnum : Enum
-        {
-            var output = Instances.ExceptionMessageOperator.Get_UnexpectedEnumerationValueExceptionMessage(unexpectedValue);
-            return output;
-        }
-
-        public Exception Get_UnexpectedEnumerationValueException<TEnum>(TEnum unexpectedValue)
-            where TEnum : Enum
-        {
-            var output = Instances.ExceptionOperator.Get_UnexpectedEnumerationValueException(unexpectedValue);
-            return output;
-        }
     }
 }

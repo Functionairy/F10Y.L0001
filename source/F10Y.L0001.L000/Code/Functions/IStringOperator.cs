@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 using F10Y.T0002;
 using F10Y.T0011;
@@ -15,7 +16,7 @@ namespace F10Y.L0001.L000
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.IStringOperator _L0000 => L0000.StringOperator.Instance;
+        L0000.IStringOperator _L0000 => L0000.StringOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
@@ -23,7 +24,7 @@ namespace F10Y.L0001.L000
         /// <summary>
         /// Prefixes a <inheritdoc cref="L0000.ICharacters.Tab" path="descendant::description[1]"/> to the input string.
         /// </summary>
-        public string Entab(string @string)
+        string Entab(string @string)
         {
             var output = this.Prefix_With(
                 Instances.Characters.Tab,
@@ -32,7 +33,7 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        public IEnumerable<string> Entab(IEnumerable<string> strings)
+        IEnumerable<string> Entab(IEnumerable<string> strings)
         {
             var output = strings
                 .Select(this.Entab)
@@ -41,13 +42,13 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        public string Except_FirstTwo(string @string)
+        string Except_FirstTwo(string @string)
         {
             var output = @string[2..];
             return output;
         }
 
-        public int[] Get_IndicesOf_OrEmpty(
+        int[] Get_IndicesOf_OrEmpty(
             string @string,
             char character)
         {
@@ -75,11 +76,21 @@ namespace F10Y.L0001.L000
             return output;
         }
 
+        string Get_String(
+            StringBuilder stringBuilder,
+            Action<StringBuilder> modifier)
+        {
+            modifier(stringBuilder);
+
+            var output = stringBuilder.ToString();
+            return output;
+        }
+
         /// <summary>
         /// Get the index of the first token containing the specified character.
         /// If no token containing the specified character is found, return <see cref="L0000.IIndices.NotFound"/> (use with <see cref="L0000.IStringOperator.Is_Found(int)"/>).
         /// </summary>
-        public int Get_TokenIndex_Containing_OrNotFound(
+        int Get_TokenIndex_Containing_OrNotFound(
             IEnumerable<string> tokens,
             char character)
         {
@@ -108,7 +119,7 @@ namespace F10Y.L0001.L000
         /// Get the index of the first token containing the specified character.
         /// If no token containing the specified character is found, an <see cref="InvalidOperationException"/> is thrown.
         /// </summary>
-        public int Get_TokenIndex_Containing(
+        int Get_TokenIndex_Containing(
             IEnumerable<string> tokens,
             char character)
         {
@@ -125,7 +136,7 @@ namespace F10Y.L0001.L000
             return indexOrNotFound;
         }
 
-        public string Join_AsList(IEnumerable<string> strings)
+        string Join_AsList(IEnumerable<string> strings)
         {
             var output = this.Join(
                 Instances.Strings.CommaSpaceSeparatedListSeparator,
@@ -134,13 +145,13 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        public string Join_AsList(params string[] strings)
+        string Join_AsList(params string[] strings)
         {
             var output = this.Join_AsList(strings.AsEnumerable());
             return output;
         }
 
-        public new string Join_AsList(IEnumerable<char> characters)
+        new string Join_AsList(IEnumerable<char> characters)
         {
             var output = this.Join(
                 Instances.Strings.CommaSpaceSeparatedListSeparator,
@@ -149,20 +160,20 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        public string Join_AsList(params char[] characters)
+        string Join_AsList(params char[] characters)
         {
             var output = this.Join_AsList(characters.AsEnumerable());
             return output;
         }
 
-        public IEnumerable<IEnumerable<string>> OrderBy_First(IEnumerable<IEnumerable<string>> values)
+        IEnumerable<IEnumerable<string>> OrderBy_First(IEnumerable<IEnumerable<string>> values)
             => Instances.EnumerableOperator.OrderBy_First(values);
 
         /// <summary>
         /// Partition a string into parts given a splitting index.
         /// Exclusive in that the character at the specified index is not included in either output part.
         /// </summary>
-        public (string firstPart, string secondPart) Partition_Exclusive(
+        (string firstPart, string secondPart) Partition_Exclusive(
             int index,
             string @string)
         {
@@ -176,7 +187,7 @@ namespace F10Y.L0001.L000
         /// Partition a string into parts given a splitting index.
         /// Inclusive in that the character at the specified index is included on the second part.
         /// </summary>
-        public (string firstPart, string secondPart) Partition_Inclusive_OnSecondPart(
+        (string firstPart, string secondPart) Partition_Inclusive_OnSecondPart(
             int index,
             string @string)
         {
@@ -191,7 +202,7 @@ namespace F10Y.L0001.L000
         /// Inclusive in that the character at the specified index is included on the second part.
         /// If the index is not found, then the whole string is returned as the first part.
         /// </summary>
-        public (string firstPart, string secondPart) Partition_Inclusive_OnSecondPart_OrFirstPartIfNotFound(
+        (string firstPart, string secondPart) Partition_Inclusive_OnSecondPart_OrFirstPartIfNotFound(
             int index,
             string @string)
         {
@@ -209,7 +220,7 @@ namespace F10Y.L0001.L000
         /// <summary>
         /// Chooses <see cref="Partition_Exclusive(int, string)"/> as the default.
         /// </summary>
-        public (string firstPart, string secondPart) Partition(
+        (string firstPart, string secondPart) Partition(
             int index,
             string @string)
         {
@@ -218,31 +229,31 @@ namespace F10Y.L0001.L000
                 @string);
         }
 
-        public IEnumerable<string> Separate(
+        IEnumerable<string> Separate(
             IEnumerable<string> strings,
             string separator)
             => Instances.EnumerableOperator.Separate(
                 strings,
                 separator);
 
-        public IEnumerable<string> Separate_Lines(IEnumerable<string> lines)
+        IEnumerable<string> Separate_Lines(IEnumerable<string> lines)
             => this.Separate(
                 lines,
                 Instances.Strings.Empty);
 
-        public IEnumerable<string> Separate_Many_Lines(
+        IEnumerable<string> Separate_Many_Lines(
             IEnumerable<IEnumerable<string>> enumerable_OfLines,
             string separator)
             => Instances.EnumerableOperator.Separate_Many(
                 enumerable_OfLines,
                 separator);
 
-        public IEnumerable<string> Separate_Many_Lines(IEnumerable<IEnumerable<string>> enumerable_OfLines)
+        IEnumerable<string> Separate_Many_Lines(IEnumerable<IEnumerable<string>> enumerable_OfLines)
             => this.Separate_Many_Lines(
                 enumerable_OfLines,
                 Instances.Strings.Empty);
 
-        public IEnumerable<string> Separate_Many_Lines<T>(
+        IEnumerable<string> Separate_Many_Lines<T>(
             IEnumerable<T> values,
             Func<T, IEnumerable<string>> selector,
             string separator)
@@ -251,7 +262,7 @@ namespace F10Y.L0001.L000
                 selector,
                 separator);
 
-        public IEnumerable<string> Separate_Many_Lines<T>(
+        IEnumerable<string> Separate_Many_Lines<T>(
             IEnumerable<T> values,
             Func<T, IEnumerable<string>> selector)
             => this.Separate_Many_Lines(
@@ -262,7 +273,7 @@ namespace F10Y.L0001.L000
         /// <summary>
         /// Chooses <see cref="Partition_Exclusive(int, string)"/> as the default.
         /// </summary>
-        public (string firstPart, string secondPart) Split_IntoParts(
+        (string firstPart, string secondPart) Split_IntoParts(
             int index,
             string @string)
         {
@@ -274,7 +285,7 @@ namespace F10Y.L0001.L000
         /// <summary>
         /// Chooses <see cref="F10Y.L0001.L000.IStringOperator.Partition_Exclusive(int, string)"/> as the default.
         /// </summary>
-        public (string firstPart, string secondPart) Split_OnIndex(
+        (string firstPart, string secondPart) Split_OnIndex(
             int index,
             string @string)
         {

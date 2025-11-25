@@ -27,6 +27,7 @@ namespace F10Y.L0001.L000
         public static IFormats Formats => L000.Formats.Instance;
         public static IFormatTemplates FormatTemplates => L000.FormatTemplates.Instance;
         public static L0000.IIndices Indices => L0000.Indices.Instance;
+        public static L0000.INewLines NewLines => L0000.NewLines.Instance;
         public static L0000.IPathOperator PathOperator => L0000.PathOperator.Instance;
         public static IStringOperator StringOperator => L000.StringOperator.Instance;
         public static IStrings Strings => L000.Strings.Instance;

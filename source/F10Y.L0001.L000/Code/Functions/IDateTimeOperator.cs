@@ -40,6 +40,26 @@ namespace F10Y.L0001.L000
         /// <para>
         /// Example output: 
         /// <example-output>
+        /// 20221014-151201
+        /// </example-output>
+        /// </para>
+		/// </summary>
+        public string To_String_YYYYMMDD_HHMMSS_Dashed(DateTime dateTime)
+        {
+            var formatTemplate = Instances.DateTimeFormatTemplates.yyyyMMdd_HHmmss_Dashed;
+
+            var output = this.Format(
+                dateTime,
+                formatTemplate);
+
+            return output;
+        }
+
+        /// <summary>
+		/// Formats the datetime including the year, month, day, hour, minute, and second, with the date and time separated by a space.
+        /// <para>
+        /// Example output: 
+        /// <example-output>
         /// 20221014 151201
         /// </example-output>
         /// </para>

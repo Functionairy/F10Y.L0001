@@ -171,5 +171,11 @@ namespace System.Linq
             var output = Instances.EnumerableOperator.Get_Second(enumerable);
             return output;
         }
+
+        public static Dictionary<TKey, TElement[]> To_Dictionary<TKey, TElement>(this IEnumerable<IGrouping<TKey, TElement>> groups)
+            => Instances.DictionaryOperator.To_Dictionary(groups);
+
+        public static Dictionary<TKey, TValue> To_Dictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> pairs)
+            => Instances.DictionaryOperator.To_Dictionary(pairs);
     }
 }
