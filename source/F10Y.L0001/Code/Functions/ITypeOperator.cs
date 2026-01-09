@@ -13,12 +13,12 @@ namespace F10Y.L0001
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.ITypeOperator _L0000 => L0000.TypeOperator.Instance;
+        L0000.ITypeOperator _L0000 => L0000.TypeOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
 
-        public Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
+        Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
             Func<TDerived, TOutput> function_OfDerived)
             where TDerived : TBase
         {
@@ -35,19 +35,72 @@ namespace F10Y.L0001
             return Internal;
         }
 
-        public Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
+        Func<TBase, TArgument, TOutput> Get_Operator_WithInputTypeVerified<TBase, TArgument, TDerived, TOutput>(
+            Func<TDerived, TArgument, TOutput> function_OfDerived)
+            where TDerived : TBase
+        {
+            TOutput Internal(
+                TBase value_Base,
+                TArgument argument)
+            {
+                this.Verify_Type_Is<TBase, TDerived>(
+                    value_Base,
+                    out var value_Derived);
+
+                var output = function_OfDerived(
+                    value_Derived,
+                    argument);
+
+                return output;
+            }
+
+            return Internal;
+        }
+
+        Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
             Func<TDerived, TOutput> function_OfDerived,
             TypeSpecifier<TBase, TDerived> typeSpecifier)
             where TDerived : TBase
             => this.Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(function_OfDerived);
 
-        public Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
+        Func<TBase, TArgument, TOutput> Get_Operator_WithInputTypeVerified<TBase, TArgument, TDerived, TOutput>(
+            Func<TDerived, TArgument, TOutput> function_OfDerived,
+            TypeSpecifier<TBase, TDerived> typeSpecifier)
+            where TDerived : TBase
+            => this.Get_Operator_WithInputTypeVerified<TBase, TArgument, TDerived, TOutput>(function_OfDerived);
+
+        Func<TBase, TArgument, TOutput> Get_Operator_WithInputTypeVerified<TBase, TArgument, TDerived, TOutput>(
+            Func<TDerived, TArgument, TOutput> function_OfDerived,
+            TypeSpecifier<TBase, TDerived> typeSpecifier_Derivation,
+            TypeSpecifier<TArgument> typeSpecifier_Argument)
+            where TDerived : TBase
+            => this.Get_Operator_WithInputTypeVerified<TBase, TArgument, TDerived, TOutput>(function_OfDerived);
+
+        Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
             Func<TDerived, TOutput> function_OfDerived,
             TypeSpecifier<TBase, TDerived, TOutput> typeSpecifier)
             where TDerived : TBase
             => this.Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(function_OfDerived);
 
-        public bool Is_TypeName<T>(
+        bool If_TypeIs_ElseFalse<T, TDerived>(
+            TDerived derived,
+            T value,
+            Func<TDerived, TDerived, bool> predicate)
+            where TDerived : T
+        {
+            if (value is TDerived value_AsDerived)
+            {
+                var output = predicate(
+                    derived,
+                    value_AsDerived);
+
+                return output;
+            }
+
+            return false;
+        }
+
+        bool Is_TypeName<T>(
             string typeName,
             out string typeName_OfTypeParameter)
         {
@@ -57,7 +110,7 @@ namespace F10Y.L0001
             return output;
         }
 
-        public void Verify_TypeName<T>(string typeName)
+        void Verify_TypeName<T>(string typeName)
         {
             var is_TypeName = this.Is_TypeName<T>(
                 typeName,

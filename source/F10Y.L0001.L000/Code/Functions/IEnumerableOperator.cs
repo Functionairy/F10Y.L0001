@@ -21,7 +21,7 @@ namespace F10Y.L0001.L000
 
 
         
-        public IEnumerable<IEnumerable<T>> OrderBy_First<T>(IEnumerable<IEnumerable<T>> values)
+        IEnumerable<IEnumerable<T>> OrderBy_First<T>(IEnumerable<IEnumerable<T>> values)
         {
             var valuesAndFirst = values
                 .Select(x => (First: x.FirstOrDefault(), Values: x))
@@ -32,7 +32,7 @@ namespace F10Y.L0001.L000
             return valuesAndFirst;
         }
 
-        public IEnumerable<T> Separate<T>(
+        IEnumerable<T> Separate<T>(
             IEnumerable<T> enumerable,
             T separator)
         {
@@ -54,7 +54,7 @@ namespace F10Y.L0001.L000
             yield return value;
         }
 
-        public IEnumerable<T> Separate_Many<T>(
+        IEnumerable<T> Separate_Many<T>(
             IEnumerable<IEnumerable<T>> enumerable,
             T separator)
         {
@@ -88,7 +88,7 @@ namespace F10Y.L0001.L000
             }
         }
 
-        public IEnumerable<TResult> Separate_Many<TSource, TResult>(
+        IEnumerable<TResult> Separate_Many<TSource, TResult>(
             IEnumerable<TSource> enumerable,
             Func<TSource, IEnumerable<TResult>> selector,
             TResult separator)
@@ -114,6 +114,47 @@ namespace F10Y.L0001.L000
                     value = enumerator.Current;
 
                     output = selector(value);
+                }
+
+                foreach (var item in output)
+                {
+                    yield return item;
+                }
+            }
+            else
+            {
+                yield break;
+            }
+        }
+
+        IEnumerable<TResult> Separate_Many<TSource, TResult>(
+            IEnumerable<TSource> enumerable,
+            Func<TSource, int, IEnumerable<TResult>> selector,
+            TResult separator)
+        {
+            var counter = 1;
+
+            var enumerator = enumerable.GetEnumerator();
+
+            var any = enumerator.MoveNext();
+            if (any)
+            {
+                var value = enumerator.Current;
+
+                var output = selector(value, counter++);
+
+                while (enumerator.MoveNext())
+                {
+                    foreach (var item in output)
+                    {
+                        yield return item;
+                    }
+
+                    yield return separator;
+
+                    value = enumerator.Current;
+
+                    output = selector(value, counter++);
                 }
 
                 foreach (var item in output)

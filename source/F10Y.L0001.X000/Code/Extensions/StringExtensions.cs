@@ -116,6 +116,12 @@ namespace System.Linq
                 values,
                 selector);
 
+        public static IEnumerable<string> SeparateMany_Lines<T>(this IEnumerable<T> values,
+           Func<T, int, IEnumerable<string>> selector)
+           => Instances.StringOperator.Separate_Many_Lines(
+               values,
+               selector);
+
         public static string Wrap(this string @string,
             string prefix,
             string suffix)

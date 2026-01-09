@@ -21,6 +21,7 @@ namespace F10Y.L0001
         public static ISwitchOperator SwitchOperator => L0001.SwitchOperator.Instance;
         public static ITexts Texts => L0001.Texts.Instance;
         public static L0000.ITypeOperator TypeOperator => L0000.TypeOperator.Instance;
+        public static ITypeSpecifierOperator TypeSpecifierOperator => L0001.TypeSpecifierOperator.Instance;
         public static IWords Words => L0001.Words.Instance;
     }
 }

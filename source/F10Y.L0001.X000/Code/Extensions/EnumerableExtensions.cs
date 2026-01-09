@@ -74,6 +74,12 @@ namespace System.Linq
             return output;
         }
 
+        public static T[] Enumerate<T>(this IEnumerable<T> items)
+        {
+            var output = Instances.EnumerableOperator.Enumerate(items);
+            return output;
+        }
+
         public static IEnumerable<T> Except<T>(this IEnumerable<T> items,
             T item)
             where T : IEquatable<T>
@@ -95,6 +101,14 @@ namespace System.Linq
 
             return output;
         }
+
+        public static IEnumerable<T> Modify_If<T>(this IEnumerable<T> items,
+            bool value,
+            Func<IEnumerable<T>, IEnumerable<T>> modifier)
+            => Instances.EnumerableOperator.Modify_If(
+                value,
+                modifier,
+                items);
 
         public static T[] Now<T>(this IEnumerable<T> enumerable)
         {

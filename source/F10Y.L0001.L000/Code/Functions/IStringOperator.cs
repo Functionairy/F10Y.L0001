@@ -264,7 +264,24 @@ namespace F10Y.L0001.L000
 
         IEnumerable<string> Separate_Many_Lines<T>(
             IEnumerable<T> values,
+            Func<T, int, IEnumerable<string>> selector,
+            string separator)
+            => Instances.EnumerableOperator.Separate_Many<T, string>(
+                values,
+                selector,
+                separator);
+
+        IEnumerable<string> Separate_Many_Lines<T>(
+            IEnumerable<T> values,
             Func<T, IEnumerable<string>> selector)
+            => this.Separate_Many_Lines(
+                values,
+                selector,
+                Instances.Strings.Empty);
+
+        IEnumerable<string> Separate_Many_Lines<T>(
+            IEnumerable<T> values,
+            Func<T, int, IEnumerable<string>> selector)
             => this.Separate_Many_Lines(
                 values,
                 selector,
