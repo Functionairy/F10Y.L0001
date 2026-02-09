@@ -18,11 +18,18 @@ namespace F10Y.L0001.L000
 #pragma warning restore IDE1006 // Naming Styles
 
 
-        public MethodBasedEqualityComparer<T> Get_MethodBasedEqualityComparer<T>(
-            Func<T, T, bool> equalsMethod,
-            Func<T, int> getHashCodeMethod)
+        MethodBasedEqualityComparer<T> From<T>(
+            Func<T, T, bool> equality_Predicate,
+            Func<T, int> hashCode_Provider)
             => new MethodBasedEqualityComparer<T>(
-                equalsMethod,
-                getHashCodeMethod);
+                equality_Predicate,
+                hashCode_Provider);
+
+        MethodBasedEqualityComparer<T> Get_MethodBasedEqualityComparer<T>(
+            Func<T, T, bool> equality_Predicate,
+            Func<T, int> hashCode_Provider)
+            => new MethodBasedEqualityComparer<T>(
+                equality_Predicate,
+                hashCode_Provider);
     }
 }

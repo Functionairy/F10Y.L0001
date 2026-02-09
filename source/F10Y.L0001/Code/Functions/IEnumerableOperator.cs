@@ -16,14 +16,11 @@ namespace F10Y.L0001
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L000.IEnumerableOperator _L000 => L000.EnumerableOperator.Instance;
+        L000.IEnumerableOperator _L000 => L000.EnumerableOperator.Instance;
 
         [Ignore]
-        public new L0000.IEnumerableOperator _L0000 => L0000.EnumerableOperator.Instance;
+        new L0000.IEnumerableOperator _L0000 => L0000.EnumerableOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
-
-
-        
     }
 }

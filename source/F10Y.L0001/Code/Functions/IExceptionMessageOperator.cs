@@ -25,7 +25,7 @@ namespace F10Y.L0001
         /// <remarks>
         /// See: https://stackoverflow.com/questions/13645149/what-is-the-correct-exception-to-throw-for-unhandled-enum-values
         /// </remarks>
-        public string Get_UnexpectedEnumerationValueExceptionMessage<TEnum>(TEnum unexpectedValue)
+        string Get_UnexpectedEnumerationValueExceptionMessage<TEnum>(TEnum unexpectedValue)
             where TEnum : Enum
         {
             var output = $"Unexpected enumeration value: '{unexpectedValue}' for enumeration type {typeof(TEnum).FullName}";
@@ -35,7 +35,7 @@ namespace F10Y.L0001
         /// <summary>
         /// Given a value (and its type), get an exception message descrbing how the value of the type is unhandled.
         /// </summary>
-        public string Get_UnhandledValueExceptionMessage<TValue>(TValue value)
+        string Get_UnhandledValueExceptionMessage<TValue>(TValue value)
         {
             var typeName = Instances.TypeOperator.Get_TypeName(value);
 
@@ -49,7 +49,7 @@ namespace F10Y.L0001
         /// <summary>
         /// Given a value and its type name, get an exception message descrbing how the value of the type is unhandled.
         /// </summary>
-        public string Get_UnhandledValueExceptionMessage<TValue>(
+        string Get_UnhandledValueExceptionMessage<TValue>(
             TValue value,
             string typeName)
         {
@@ -62,7 +62,7 @@ namespace F10Y.L0001
             return message;
         }
 
-        public string Get_UnrecognizedEnumerationValueExceptionMessage<TEnum>(string representation)
+        string Get_UnrecognizedEnumerationValueExceptionMessage<TEnum>(string representation)
             where TEnum : Enum
         {
             var enumerationTypeName = Instances.TypeOperator.Get_TypeNameOf<TEnum>();

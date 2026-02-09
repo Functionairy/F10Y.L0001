@@ -1,7 +1,9 @@
 ﻿using System;
 
+using F10Y.L0001.T000;
 
-namespace F10Y.L0001.Extensions
+
+namespace F10Y.L0001.L004.Extensions
 {
     public static class TypeSpecifierExtensions
     {

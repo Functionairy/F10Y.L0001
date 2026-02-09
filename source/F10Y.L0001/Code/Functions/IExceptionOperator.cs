@@ -13,13 +13,13 @@ namespace F10Y.L0001
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.IExceptionOperator _L0000 => L0000.ExceptionOperator.Instance;
+        L0000.IExceptionOperator _L0000 => L0000.ExceptionOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
 
         /// <inheritdoc cref="IExceptionMessageOperator.Get_UnhandledValueExceptionMessage{TValue}(TValue, string)"/>
-        public Exception Get_DefaultCaseException_ForType<T>(T value)
+        Exception Get_DefaultCaseException_ForType<T>(T value)
         {
             var message = Instances.ExceptionMessageOperator.Get_UnhandledValueExceptionMessage(value);
 
@@ -27,7 +27,10 @@ namespace F10Y.L0001
             return output;
         }
 
-        public Exception Get_UnexpectedEnumerationValueException<TEnum>(TEnum unexpectedValue)
+        string Get_Text(Exception exception)
+            => exception.ToString();
+
+        Exception Get_UnexpectedEnumerationValueException<TEnum>(TEnum unexpectedValue)
             where TEnum : Enum
         {
             var message = Instances.ExceptionMessageOperator.Get_UnexpectedEnumerationValueExceptionMessage(unexpectedValue);
@@ -36,7 +39,7 @@ namespace F10Y.L0001
             return output;
         }
 
-        public Exception Get_UnrecognizedEnumerationValueException<TEnum>(string representation)
+        Exception Get_UnrecognizedEnumerationValueException<TEnum>(string representation)
             where TEnum : Enum
         {
             var message = Instances.ExceptionMessageOperator.Get_UnrecognizedEnumerationValueExceptionMessage<TEnum>(representation);

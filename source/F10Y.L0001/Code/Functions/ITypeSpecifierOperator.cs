@@ -2,16 +2,20 @@ using System;
 
 using F10Y.T0002;
 
+using F10Y.T0011;
+
 
 namespace F10Y.L0001
 {
     [FunctionsMarker]
-    public partial interface ITypeSpecifierOperator
+    public partial interface ITypeSpecifierOperator :
+        L004.ITypeSpecifierOperator
     {
-        TypeSpecifier<T1> Get_First<T1, T2>(TypeSpecifier<T1, T2> typeSpecifier)
-            => TypeSpecifier<T1>.Instance;
+#pragma warning disable IDE1006 // Naming Styles
 
-        TypeSpecifier<T2> Get_Second<T1, T2>(TypeSpecifier<T1, T2> typeSpecifier)
-            => TypeSpecifier<T2>.Instance;
+        [Ignore]
+        L004.ITypeSpecifierOperator _L004 => L004.TypeSpecifierOperator.Instance;
+
+#pragma warning restore IDE1006 // Naming Styles
     }
 }

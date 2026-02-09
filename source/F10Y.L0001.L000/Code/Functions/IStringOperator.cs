@@ -48,6 +48,16 @@ namespace F10Y.L0001.L000
             return output;
         }
 
+        string Format_WithTwoDecimalPlaces(double value)
+            => this.Format_WithTemplate(
+                Instances.FormatTemplates._0_00,
+                value);
+
+        string Format_WithThreeDecimalPlaces(double value)
+            => this.Format_WithTemplate(
+                Instances.FormatTemplates._0_000,
+                value);
+
         int[] Get_IndicesOf_OrEmpty(
             string @string,
             char character)

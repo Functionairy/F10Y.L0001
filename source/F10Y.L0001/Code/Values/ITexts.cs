@@ -24,12 +24,12 @@ namespace F10Y.L0001
         public string None_Capitalized => this.NONE;
 
         /// <summary>
-        /// Chooses <see cref="None_Bracketed"/> as the standard None text.
+        /// Chooses <see cref="None_Bracketed"/> (<inheritdoc cref="None_Bracketed" path="descendant::value"/>) as the standard None text.
         /// </summary>
         public string None_Standard => this.None_Bracketed;
 
         /// <summary>
-        /// Chooses <see cref="None_Standard"/> as the default None text.
+        /// Chooses <see cref="None_Standard"/> (<inheritdoc cref="None_Standard" path="descendant::value"/>) as the default None text.
         /// </summary>
         public string None => this.None_Standard;
 
@@ -49,7 +49,7 @@ namespace F10Y.L0001
         public string null_Standard => this.@null;
 
         /// <summary>
-        /// Chooses <see cref="null_Standard"/> as the default null text.
+        /// Chooses <see cref="null_Standard"/> (<inheritdoc cref="null_Standard" path="descendant::value"/>) as the default null text.
         /// </summary>
         public string Null => this.null_Standard;
 

@@ -26,7 +26,7 @@ namespace F10Y.L0001
         public bool Contains_Contiguous_OrderIndependent<T>(
             T[] parent,
             T[] set,
-            Func<T, T, bool> equality)
+            IEqualityComparer<T> equalityComparer)
         {
             var length_A = this.Get_Length(parent);
             var length_B = this.Get_Length(set);
@@ -39,7 +39,7 @@ namespace F10Y.L0001
             {
                 var element_A = parent[i];
 
-                var equals_FirstB = equality(element_A, first_B);
+                var equals_FirstB = equalityComparer.Equals(element_A, first_B);
                 if (equals_FirstB)
                 {
                     // Are there enough elements left?
@@ -56,7 +56,8 @@ namespace F10Y.L0001
 
                     var areEqual_OrderIndependent = this.Are_Equal_OrderIndependent(
                         set,
-                        subsection_OfA);
+                        subsection_OfA,
+                        equalityComparer);
 
                     if(areEqual_OrderIndependent)
                     {
@@ -68,18 +69,18 @@ namespace F10Y.L0001
             return false;
         }
 
-        /// <inheritdoc cref="Contains_Contiguous_OrderIndependent{T}(T[], T[], Func{T, T, bool})"/>
+        /// <inheritdoc cref="Contains_Contiguous_OrderIndependent{T}(T[], T[], IEqualityComparer{T})"/>
         public bool Contains_Contiguous_OrderIndependent<T>(
             T[] parent,
             T[] set)
             where T : IEquatable<T>
         {
-            var equality = Instances.EqualityOperator.Get_Equality<T>();
+            var equalityComparer = Instances.EqualityComparerOperator.Get_Default<T>();
 
             var output = this.Contains_Contiguous_OrderIndependent(
                 parent,
                 set,
-                equality);
+                equalityComparer);
 
             return output;
         }

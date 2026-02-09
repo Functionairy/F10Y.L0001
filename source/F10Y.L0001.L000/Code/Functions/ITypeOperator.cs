@@ -14,16 +14,55 @@ namespace F10Y.L0001.L000
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.ITypeOperator _L0000 => L0000.TypeOperator.Instance;
+        L0000.ITypeOperator _L0000 => L0000.TypeOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
+
+        Func<TBase, TOutput> Get_Operator_WithInputTypeVerified<TBase, TDerived, TOutput>(
+            Func<TDerived, TOutput> function_OfDerived)
+            where TDerived : TBase
+        {
+            TOutput Internal(TBase value_Base)
+            {
+                this.Verify_Type_Is<TBase, TDerived>(
+                    value_Base,
+                    out var value_Derived);
+
+                var output = function_OfDerived(value_Derived);
+                return output;
+            }
+
+            return Internal;
+        }
+
+        Func<TBase, TArgument, TOutput> Get_Operator_WithInputTypeVerified<TBase, TArgument, TDerived, TOutput>(
+            Func<TDerived, TArgument, TOutput> function_OfDerived)
+            where TDerived : TBase
+        {
+            TOutput Internal(
+                TBase value_Base,
+                TArgument argument)
+            {
+                this.Verify_Type_Is<TBase, TDerived>(
+                    value_Base,
+                    out var value_Derived);
+
+                var output = function_OfDerived(
+                    value_Derived,
+                    argument);
+
+                return output;
+            }
+
+            return Internal;
+        }
 
         /// <summary>
         /// Get generic type inputs (either arguments, which are specified types like System.String, or parameters, which are unspecified like TKey).
         /// Note: handles any complications due to nesting, such as where the type might share generic inputs from it's nested parent type, by only returning generic types inputs that are not generic type inputs of any nested parents.
         /// </summary>
-        public Type[] Get_GenericTypeInputs_NotInParents(Type type)
+        Type[] Get_GenericTypeInputs_NotInParents(Type type)
         {
             var genericTypeInputsOfType = this.Get_GenericTypeInputs_OfType(type);
 
@@ -52,7 +91,7 @@ namespace F10Y.L0001.L000
         /// Get generic type inputs (either arguments, which are specified types like System.String, or parameters, which are unspecified like TKey).
         /// Note: gets the generic type inputs of the type (without handling any complications due to nesting, where the type might share generic inputs from it's nested parent type).
         /// </summary>
-        public Type[] Get_GenericTypeInputs_OfType(Type type)
+        Type[] Get_GenericTypeInputs_OfType(Type type)
         {
             // The GetGenericArguments() method returns both type parameters of a generic type definition,
             // and the generic type arguments of a closed generic type.
@@ -64,7 +103,7 @@ namespace F10Y.L0001.L000
         /// Chooses <see cref="Get_GenericTypeInputs_NotInParents(Type)"/> as the default, since in general all we really want are the *new* generic inputs of the type.
         /// If you want all the raw generic inputs of the type, use <see cref="Get_GenericTypeInputs_OfType(Type)"/>.
         /// </summary>
-        public Type[] Get_GenericTypeInputs(Type type)
+        Type[] Get_GenericTypeInputs(Type type)
         {
             var output = this.Get_GenericTypeInputs_NotInParents(type);
             return output;
@@ -73,7 +112,7 @@ namespace F10Y.L0001.L000
         /// <summary>
         /// The parent of a nested type is the type's <see cref="Type.DeclaringType"/>.
         /// </summary>
-        public Type Get_NestedTypeParentType(Type type)
+        Type Get_NestedTypeParentType(Type type)
         {
             var output = type.DeclaringType;
             return output;

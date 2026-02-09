@@ -18,7 +18,16 @@ namespace F10Y.L0001.L000
 #pragma warning restore IDE1006 // Naming Styles
 
 
-        public string To_String_YYYYMMDD(DateTime dateTime)
+        DateTime Parse_YYYYMMDD_HHMMSS_Dashed(string dateTime)
+        {
+            var output = this.Parse_Exact(
+                dateTime,
+                Instances.DateTimeFormats.yyyyMMdd_HHmmss_Dashed);
+
+            return output;
+        }
+
+        string To_String_YYYYMMDD(DateTime dateTime)
         {
             var output = $"{dateTime:yyyyMMdd}";
             return output;
@@ -29,7 +38,7 @@ namespace F10Y.L0001.L000
         /// <remarks>
         /// Chooses <see cref="To_String_YYYYMMDD_HHMMSS_Spaced(DateTime)"/> as the default.
         /// </remarks>
-        public string To_String_YYYYMMDD_HHMMSS(DateTime dateTime)
+        string To_String_YYYYMMDD_HHMMSS(DateTime dateTime)
         {
             var output = this.To_String_YYYYMMDD_HHMMSS_Spaced(dateTime);
             return output;
@@ -44,7 +53,7 @@ namespace F10Y.L0001.L000
         /// </example-output>
         /// </para>
 		/// </summary>
-        public string To_String_YYYYMMDD_HHMMSS_Dashed(DateTime dateTime)
+        string To_String_YYYYMMDD_HHMMSS_Dashed(DateTime dateTime)
         {
             var formatTemplate = Instances.DateTimeFormatTemplates.yyyyMMdd_HHmmss_Dashed;
 
@@ -64,7 +73,7 @@ namespace F10Y.L0001.L000
         /// </example-output>
         /// </para>
 		/// </summary>
-        public string To_String_YYYYMMDD_HHMMSS_Spaced(DateTime dateTime)
+        string To_String_YYYYMMDD_HHMMSS_Spaced(DateTime dateTime)
         {
             var formatTemplate = Instances.DateTimeFormatTemplates.yyyyMMdd_HHmmss;
 
@@ -75,7 +84,7 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        public string To_String_YYYY_MM_DD(DateTime dateTime)
+        string To_String_YYYY_MM_DD(DateTime dateTime)
         {
             var output = $"{dateTime:yyyy-MM-dd}";
             return output;
@@ -86,7 +95,7 @@ namespace F10Y.L0001.L000
         /// <remarks>
         /// Chooses <see cref="To_String_HH_mm_ss_Coloned(DateTime)"/> as the default.
         /// </remarks>
-        public string To_String_HH_mm_ss(DateTime dateTime)
+        string To_String_HH_mm_ss(DateTime dateTime)
         {
             var output = this.To_String_HH_mm_ss_Coloned(dateTime);
             return output;
@@ -98,7 +107,7 @@ namespace F10Y.L0001.L000
         /// 15:12:01
         /// </example-output>
 		/// </summary>
-        public string To_String_HH_mm_ss_Coloned(DateTime dateTime)
+        string To_String_HH_mm_ss_Coloned(DateTime dateTime)
         {
             var output = $"{dateTime:HH:mm:ss}";
             return output;

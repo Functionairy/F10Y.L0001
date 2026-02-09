@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace F10Y.L0001
+namespace F10Y.L0001.T000
 {
     public readonly struct TypeSpecifier<T>
     {

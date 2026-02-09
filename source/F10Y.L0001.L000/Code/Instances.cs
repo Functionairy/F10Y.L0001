@@ -14,6 +14,7 @@ namespace F10Y.L0001.L000
         public static L0000.IConverter Converter => L0000.Converter.Instance;
         public static IDateTimeFormats DateTimeFormats => L000.DateTimeFormats.Instance;
         public static IDateTimeFormatTemplates DateTimeFormatTemplates => L000.DateTimeFormatTemplates.Instance;
+        public static IDirectoryInfoOperator DirectoryInfoOperator => L000.DirectoryInfoOperator.Instance;
         public static IDocumentationFileOperator DocumentationFileOperator => L000.DocumentationFileOperator.Instance;
         public static IDocumentationXmlFileOperator DocumentationXmlFileOperator => L000.DocumentationXmlFileOperator.Instance;
         public static IDocumentationXmlNodeNames DocumentationXmlNodeNames => L000.DocumentationXmlNodeNames.Instance;
@@ -26,8 +27,11 @@ namespace F10Y.L0001.L000
         public static L0000.IFileSystemOperator FileSystemOperator => L0000.FileSystemOperator.Instance;
         public static IFormats Formats => L000.Formats.Instance;
         public static IFormatTemplates FormatTemplates => L000.FormatTemplates.Instance;
+        public static L0000.IFunctionOperator FunctionOperator => L0000.FunctionOperator.Instance;
+        public static L0000.IFunctions Functions => L0000.Functions.Instance;
         public static L0000.IIndices Indices => L0000.Indices.Instance;
         public static L0000.INewLines NewLines => L0000.NewLines.Instance;
+        public static L0000.INowOperator NowOperator => L0000.NowOperator.Instance;
         public static L0000.IPathOperator PathOperator => L0000.PathOperator.Instance;
         public static IStringOperator StringOperator => L000.StringOperator.Instance;
         public static IStrings Strings => L000.Strings.Instance;

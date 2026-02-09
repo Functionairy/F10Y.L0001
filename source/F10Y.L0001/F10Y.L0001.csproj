@@ -21,6 +21,8 @@
     <ProjectReference Include="..\F10Y.L0001.L001\F10Y.L0001.L001.csproj" />
     <ProjectReference Include="..\F10Y.L0001.L002\F10Y.L0001.L002.csproj" />
     <ProjectReference Include="..\F10Y.L0001.L003\F10Y.L0001.L003.csproj" />
+    <ProjectReference Include="..\F10Y.L0001.L004\F10Y.L0001.L004.csproj" />
+    <ProjectReference Include="..\F10Y.L0001.T001\F10Y.L0001.T001.csproj" />
     <ProjectReference Include="..\F10Y.L0001.X000\F10Y.L0001.X000.csproj" />
     <ProjectReference Include="..\F10Y.L0001.Z000\F10Y.L0001.Z000.csproj" />
     <ProjectReference Include="..\F10Y.L0001.T000\F10Y.L0001.T000.csproj" />
