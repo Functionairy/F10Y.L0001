@@ -191,5 +191,8 @@ namespace System.Linq
 
         public static Dictionary<TKey, TValue> To_Dictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> pairs)
             => Instances.DictionaryOperator.To_Dictionary(pairs);
+
+        public static HashSet<T> To_HashSet<T>(this IEnumerable<T> values)
+            => Instances.EnumerableOperator.To_HashSet(values);
     }
 }

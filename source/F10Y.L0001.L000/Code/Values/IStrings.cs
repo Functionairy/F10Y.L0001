@@ -22,9 +22,21 @@ namespace F10Y.L0001.L000
 
 
         /// <inheritdoc cref="StringsDocumentation.ForCommaSeparatedListSpacedSeparator"/>
-        public const string CommaSeparatedListSpacedSeparator_Constant = ", ";
+        const string CommaSeparatedListSpacedSeparator_Constant = ", ";
 
         /// <inheritdoc cref="CommaSeparatedListSpacedSeparator_Constant"/>
-        public string CommaSpaceSeparatedListSeparator => IStrings.CommaSeparatedListSpacedSeparator_Constant;
+        string CommaSpaceSeparatedListSeparator => IStrings.CommaSeparatedListSpacedSeparator_Constant;
+
+        /// <inheritdoc cref="StringsDocumentation.ForTab_AsFourSpaces"/>
+        const string Tab_AsFourSpaces_Constant = "    ";
+
+        /// <inheritdoc cref="Tab_AsFourSpaces_Constant"/>
+        string Tab_AsFourSpaces => IStrings.Tab_AsFourSpaces_Constant;
+
+        /// <inheritdoc cref="Tab_AsFourSpaces_Constant"/>
+        const string Tab_AsSpaces_Constant = IStrings.Tab_AsFourSpaces_Constant;
+
+        /// <inheritdoc cref="Tab_AsSpaces_Constant"/>
+        string Tab_AsSpaces => IStrings.Tab_AsSpaces_Constant;
     }
 }

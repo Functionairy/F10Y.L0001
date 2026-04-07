@@ -6,6 +6,7 @@ namespace F10Y.L0001.L000
     public static class Instances
     {
         public static L0000.IAssemblyOperator AssemblyOperator => L0000.AssemblyOperator.Instance;
+        public static IByteEqualityVerifier ByteEqualityVerifier => L000.ByteEqualityVerifier.Instance;
         public static IBytesOperator BytesOperator => L000.BytesOperator.Instance;
         public static L0000.ICancellationTokens CancellationTokens => L0000.CancellationTokens.Instance;
         public static L0000.ICharacterOperator CharacterOperator => L0000.CharacterOperator.Instance;
@@ -14,6 +15,7 @@ namespace F10Y.L0001.L000
         public static L0000.IConverter Converter => L0000.Converter.Instance;
         public static IDateTimeFormats DateTimeFormats => L000.DateTimeFormats.Instance;
         public static IDateTimeFormatTemplates DateTimeFormatTemplates => L000.DateTimeFormatTemplates.Instance;
+        public static L0000.IDictionaryOperator DictionaryOperator => L0000.DictionaryOperator.Instance;
         public static IDirectoryInfoOperator DirectoryInfoOperator => L000.DirectoryInfoOperator.Instance;
         public static IDocumentationFileOperator DocumentationFileOperator => L000.DocumentationFileOperator.Instance;
         public static IDocumentationXmlFileOperator DocumentationXmlFileOperator => L000.DocumentationXmlFileOperator.Instance;
@@ -21,6 +23,10 @@ namespace F10Y.L0001.L000
         public static IDocumentationXmlOperator DocumentationXmlOperator => L000.DocumentationXmlOperator.Instance;
         public static IEnumerableOperator EnumerableOperator => L000.EnumerableOperator.Instance;
         public static L0000.IEnumerationOperator EnumerationOperator => L0000.EnumerationOperator.Instance;
+        public static L0000.IEqualityComparers EqualityComparers => L0000.EqualityComparers.Instance;
+        public static IExceptionMessageOperator ExceptionMessageOperator => L000.ExceptionMessageOperator.Instance;
+        public static IExceptionOperator ExceptionOperator => L000.ExceptionOperator.Instance;
+        public static L0000.IFileOperator FileOperator => L0000.FileOperator.Instance;
         public static IFileExtensions FileExtensions => L000.FileExtensions.Instance;
         public static L0000.IFileNameOperator FileNameOperator => L0000.FileNameOperator.Instance;
         public static L0000.IFileStreamOperator FileStreamOperator => L0000.FileStreamOperator.Instance;
@@ -29,12 +35,14 @@ namespace F10Y.L0001.L000
         public static IFormatTemplates FormatTemplates => L000.FormatTemplates.Instance;
         public static L0000.IFunctionOperator FunctionOperator => L0000.FunctionOperator.Instance;
         public static L0000.IFunctions Functions => L0000.Functions.Instance;
+        public static L0000.IHashSetOperator HashSetOperator => L0000.HashSetOperator.Instance;
         public static L0000.IIndices Indices => L0000.Indices.Instance;
         public static L0000.INewLines NewLines => L0000.NewLines.Instance;
         public static L0000.INowOperator NowOperator => L0000.NowOperator.Instance;
         public static L0000.IPathOperator PathOperator => L0000.PathOperator.Instance;
         public static IStringOperator StringOperator => L000.StringOperator.Instance;
         public static IStrings Strings => L000.Strings.Instance;
+        public static ISwitchOperator SwitchOperator => L000.SwitchOperator.Instance;
         public static ITexts Texts => L000.Texts.Instance;
         public static ITypeOperator TypeOperator => L000.TypeOperator.Instance;
         public static IValues Values => L000.Values.Instance;

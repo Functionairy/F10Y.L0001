@@ -8,6 +8,12 @@ using F10Y.T0011;
 
 namespace F10Y.L0001
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// <inheritdoc cref="Documentation.Project_SelfDescription" path="/summary"/>
+    /// </remarks>
     [FunctionsMarker]
     public partial interface IEnumerableOperator :
         L000.IEnumerableOperator,

@@ -15,6 +15,11 @@ namespace F10Y.L0001.L000
             /// For use in comma-separated lists where you also want a space after each comma.
             /// </summary>
             public static readonly object ForCommaSeparatedListSpacedSeparator;
+
+            /// <summary>
+            /// "\s\s\s\s", tab implemeted as four spaces
+            /// </summary>
+            public static readonly object ForTab_AsFourSpaces;
         }
     }
 }

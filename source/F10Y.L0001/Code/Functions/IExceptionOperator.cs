@@ -8,12 +8,12 @@ namespace F10Y.L0001
 {
     [FunctionsMarker]
     public partial interface IExceptionOperator :
-        L0000.IExceptionOperator
+        L000.IExceptionOperator
     {
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        L0000.IExceptionOperator _L0000 => L0000.ExceptionOperator.Instance;
+        L000.IExceptionOperator _L000 => L000.ExceptionOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
@@ -34,15 +34,6 @@ namespace F10Y.L0001
             where TEnum : Enum
         {
             var message = Instances.ExceptionMessageOperator.Get_UnexpectedEnumerationValueExceptionMessage(unexpectedValue);
-
-            var output = this.From(message);
-            return output;
-        }
-
-        Exception Get_UnrecognizedEnumerationValueException<TEnum>(string representation)
-            where TEnum : Enum
-        {
-            var message = Instances.ExceptionMessageOperator.Get_UnrecognizedEnumerationValueExceptionMessage<TEnum>(representation);
 
             var output = this.From(message);
             return output;

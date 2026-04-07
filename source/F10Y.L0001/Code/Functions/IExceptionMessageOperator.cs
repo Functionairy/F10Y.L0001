@@ -8,12 +8,12 @@ namespace F10Y.L0001
 {
     [FunctionsMarker]
     public partial interface IExceptionMessageOperator :
-        L0000.IExceptionMessageOperator
+        L000.IExceptionMessageOperator
     {
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.IExceptionMessageOperator _L0000 => L0000.ExceptionMessageOperator.Instance;
+        L000.IExceptionMessageOperator _L000 => L000.ExceptionMessageOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
@@ -59,15 +59,6 @@ namespace F10Y.L0001
                 ;
 
             var message = $"Unhandled value:\n\t{valueName}: value\n\t{typeName}: type name";
-            return message;
-        }
-
-        string Get_UnrecognizedEnumerationValueExceptionMessage<TEnum>(string representation)
-            where TEnum : Enum
-        {
-            var enumerationTypeName = Instances.TypeOperator.Get_TypeNameOf<TEnum>();
-
-            var message = $"Unrecognized representation '{representation}' for enumeration type {enumerationTypeName}.";
             return message;
         }
     }

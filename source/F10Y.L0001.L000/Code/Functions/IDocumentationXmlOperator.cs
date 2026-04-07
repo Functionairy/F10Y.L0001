@@ -8,6 +8,9 @@ using F10Y.T0002;
 
 namespace F10Y.L0001.L000
 {
+    /// <summary>
+    /// Functions related to .NET XML documentation.
+    /// </summary>
     [FunctionsMarker]
     public partial interface IDocumentationXmlOperator
     {
@@ -16,6 +19,14 @@ namespace F10Y.L0001.L000
             var membersElement = this.Get_MembersElement(documentationElement);
 
             var output = Instances.XElementOperator.Enumerate_ChildElements(membersElement);
+            return output;
+        }
+
+        IEnumerable<XElement> Enumerate_MemberElements_Cloned(XElement documentationElement)
+        {
+            var membersElement = this.Get_MembersElement(documentationElement);
+
+            var output = Instances.XElementOperator.Enumerate_ChildElements_Cloned(membersElement);
             return output;
         }
 
@@ -47,18 +58,18 @@ namespace F10Y.L0001.L000
             return output;
         }
 
-        string Get_Member_IdentityString(XElement memberElement)
+        string Get_Member_IdentityString(XElement member)
             => Instances.XElementOperator.Get_Attribute_Value(
-                memberElement,
+                member,
                 Instances.DocumentationXmlNodeNames.name);
 
-        XElement[] Get_MemberElements(XElement documentationElement)
-            => this.Enumerate_MemberElements(documentationElement)
+        XElement[] Get_MemberElements(XElement documentation)
+            => this.Enumerate_MemberElements(documentation)
             .ToArray();
 
-        Dictionary<string, XElement> Get_MemberElements_ByIdentityString(XDocument documentationDocument)
+        Dictionary<string, XElement> Get_MemberElements_ByIdentityString(XDocument documentation)
         {
-            var documentationElement = this.Get_DocumentationElement(documentationDocument);
+            var documentationElement = this.Get_DocumentationElement(documentation);
 
             var output = this.Get_MemberElements_ByIdentityString(documentationElement);
             return output;

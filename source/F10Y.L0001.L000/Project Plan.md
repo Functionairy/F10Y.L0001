@@ -6,6 +6,8 @@ Adds Functionairy opinionation to the F10Y.L0000 language-only library.
 DOES NOT ALLOW NEW TYPES - No matter how fundamental or intrinsic!
 For functionality that depends on new types see L004.
 
+=> Yes, there are some types in this library that should be moved to L004.
+
 Allowed dependencies:
 
 	- F10Y.L0000

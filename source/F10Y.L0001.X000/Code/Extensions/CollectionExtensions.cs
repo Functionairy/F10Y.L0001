@@ -10,5 +10,8 @@ namespace System.Linq
     {
         public static bool Has_Multiple<T>(this ICollection<T> collection)
             => Instances.CollectionOperator.Has_Multiple(collection);
+
+        public static bool Has_Single<T>(this ICollection<T> collection)
+            => Instances.CollectionOperator.Has_Single(collection);
     }
 }
