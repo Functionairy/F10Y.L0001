@@ -13,10 +13,18 @@ namespace F10Y.L0001.L000.Raw
         /// </summary>
         uint _1_000 => 1_000;
 
+        /// <inheritdoc cref="_1_024_AsInt32"/>
+        int _1_024 => this._1_024_AsInt32;
+
         /// <summary>
         /// <para><value>1,024</value></para>
         /// </summary>
-        uint _1_024 => 1024;
+        int _1_024_AsInt32 => 1024;
+
+        /// <summary>
+        /// <para><value>1,024</value></para>
+        /// </summary>
+        uint _1_024_AsUInt32 => 1024;
 
         /// <summary>
         /// <para><value>0x04_00 (1,024)</value></para>
@@ -33,10 +41,18 @@ namespace F10Y.L0001.L000.Raw
         /// </summary>
         uint _1_000_000 => 1_000_000;
 
+        /// <inheritdoc cref="_1_024_x_1_024_AsInt32"/>
+        int _1_024_x_1_024 => _1_024_x_1_024_AsInt32;
+
         /// <summary>
         /// <para><value>1,024 * 1,024</value></para>
         /// </summary>
-        uint _1_024_x_1_024 => 1024 * 1024;
+        int _1_024_x_1_024_AsInt32 => 1024 * 1024;
+
+        /// <summary>
+        /// <para><value>1,024 * 1,024</value></para>
+        /// </summary>
+        uint _1_024_x_1_024_AsUnit32 => 1024 * 1024;
 
         /// <summary>
         /// <para><value>1,000,000,000</value></para>
