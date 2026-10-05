@@ -22,10 +22,10 @@ namespace F10Y.L0001.L000
 
 
         /// <inheritdoc cref="StringsDocumentation.ForCommaSeparatedListSpacedSeparator"/>
-        const string CommaSeparatedListSpacedSeparator_Constant = ", ";
+        const string CommaSpaceSeparatedListSeparator_Constant = ", ";
 
-        /// <inheritdoc cref="CommaSeparatedListSpacedSeparator_Constant"/>
-        string CommaSpaceSeparatedListSeparator => IStrings.CommaSeparatedListSpacedSeparator_Constant;
+        /// <inheritdoc cref="CommaSpaceSeparatedListSeparator_Constant"/>
+        string CommaSpaceSeparatedListSeparator => IStrings.CommaSpaceSeparatedListSeparator_Constant;
 
         /// <inheritdoc cref="StringsDocumentation.ForTab_AsFourSpaces"/>
         const string Tab_AsFourSpaces_Constant = "    ";

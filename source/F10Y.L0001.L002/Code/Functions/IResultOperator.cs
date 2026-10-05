@@ -11,6 +11,15 @@ namespace F10Y.L0001.L002
     [FunctionsMarker]
     public partial interface IResultOperator
     {
+        N004.Result<T> From<T>(
+            bool success,
+            T value)
+            => new N004.Result<T>
+            {
+                Success = success,
+                Value = value
+            };
+
         N002.Result<T> Failure<T>(Exception exception)
             => new N002.Result<T>
             {

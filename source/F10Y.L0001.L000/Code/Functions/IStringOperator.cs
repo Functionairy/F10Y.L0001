@@ -146,6 +146,9 @@ namespace F10Y.L0001.L000
             return indexOrNotFound;
         }
 
+        /// <summary>
+        /// Joins strings into a list using a comma-and-space. (<inheritdoc cref="IStrings.CommaSpaceSeparatedListSeparator" path="descendant::value"/>, <see cref="IStrings.CommaSpaceSeparatedListSeparator"/>)
+        /// </summary>
         string Join_AsList(IEnumerable<string> strings)
         {
             var output = this.Join(
@@ -155,12 +158,16 @@ namespace F10Y.L0001.L000
             return output;
         }
 
+        /// <inheritdoc cref="Join_AsList(IEnumerable{string})"/>
         string Join_AsList(params string[] strings)
         {
             var output = this.Join_AsList(strings.AsEnumerable());
             return output;
         }
 
+        /// <summary>
+        /// Joins characters into a list using a comma-and-space. (<inheritdoc cref="IStrings.CommaSpaceSeparatedListSeparator" path="descendant::value"/>, <see cref="IStrings.CommaSpaceSeparatedListSeparator"/>)
+        /// </summary>
         new string Join_AsList(IEnumerable<char> characters)
         {
             var output = this.Join(
@@ -170,6 +177,7 @@ namespace F10Y.L0001.L000
             return output;
         }
 
+        /// <inheritdoc cref="Join_AsList(IEnumerable{char})"/>
         string Join_AsList(params char[] characters)
         {
             var output = this.Join_AsList(characters.AsEnumerable());

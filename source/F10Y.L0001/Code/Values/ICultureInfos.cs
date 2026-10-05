@@ -14,7 +14,7 @@ namespace F10Y.L0001
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.ICultureInfos _L0000 => L0000.CultureInfos.Instance;
+        L0000.ICultureInfos _L0000 => L0000.CultureInfos.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
@@ -22,6 +22,6 @@ namespace F10Y.L0001
         /// <summary>
         /// Chooses <see cref="L0000.ICultureInfos.Invariant"/> as the Functionairy standard.
         /// </summary>
-        public CultureInfo Standard => this.Invariant;
+        CultureInfo Standard => this.Invariant;
     }
 }

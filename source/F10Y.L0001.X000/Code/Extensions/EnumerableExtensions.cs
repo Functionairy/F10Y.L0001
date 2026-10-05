@@ -56,6 +56,14 @@ namespace System.Linq
 
         public static IEnumerable<T> Append_If<T>(this IEnumerable<T> enumerable,
             bool condition,
+            Func<IEnumerable<T>> get_Appendix_IfTrue)
+            => Instances.EnumerableOperator.Append_If(
+                enumerable,
+                condition,
+                get_Appendix_IfTrue);
+
+        public static IEnumerable<T> Append_If<T>(this IEnumerable<T> enumerable,
+            bool condition,
             Func<IEnumerable<T>> get_Appendix_IfTrue,
             Func<IEnumerable<T>> get_Appendix_IfFalse)
             => Instances.EnumerableOperator.Append_If(
@@ -74,6 +82,11 @@ namespace System.Linq
             return output;
         }
 
+        public static IEnumerable<TOut> Convert<TIn, TOut>(this IEnumerable<TIn> enumerable,
+            Func<TIn, TOut> conversion)
+            => Instances.EnumerableOperator.Convert(enumerable,
+                conversion);
+
         public static T[] Enumerate<T>(this IEnumerable<T> items)
         {
             var output = Instances.EnumerableOperator.Enumerate(items);
@@ -85,6 +98,15 @@ namespace System.Linq
             where T : IEquatable<T>
         {
             var output = Instances.EnumerableOperator.Except(items,
+                item);
+
+            return output;
+        }
+
+        public static IEnumerable<T> Except_Item<T>(this IEnumerable<T> items,
+            T item)
+        {
+            var output = Instances.EnumerableOperator.Except_Item(items,
                 item);
 
             return output;
@@ -172,6 +194,10 @@ namespace System.Linq
             => Instances.EnumerableOperator.Order_With(
                 enumerable,
                 comparison);
+
+        public static IEnumerable<T> Order_With<T>(this IEnumerable<T> elements,
+            Func<IEnumerable<T>, IEnumerable<T>> orderer)
+            => orderer(elements);
 
         public static IOrderedEnumerable<T> Order_By<T, TKey>(this IEnumerable<T> enumerable,
             Func<T, TKey> key_Selector,

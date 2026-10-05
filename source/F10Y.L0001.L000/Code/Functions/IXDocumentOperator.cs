@@ -15,12 +15,12 @@ namespace F10Y.L0001.L000
 #pragma warning disable IDE1006 // Naming Styles
 
         [Ignore]
-        public L0000.IXDocumentOperator _L0000 => L0000.XDocumentOperator.Instance;
+        L0000.IXDocumentOperator _L0000 => L0000.XDocumentOperator.Instance;
 
 #pragma warning restore IDE1006 // Naming Styles
 
 
-        public async Task<XDocument> Load(
+        async Task<XDocument> Load(
             string filePath,
             LoadOptions loadOptions)
         {

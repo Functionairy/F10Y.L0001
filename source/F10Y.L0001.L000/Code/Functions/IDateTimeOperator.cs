@@ -84,9 +84,23 @@ namespace F10Y.L0001.L000
             return output;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IDateTimeFormatTemplates.yyyy_MM_dd_Dashed" path="descendant::value"/>
+        /// <para>
+        /// Example output: 
+        /// <example-output>
+        /// 2022 10 14
+        /// </example-output>
+        /// </para>
+        /// </summary>
         string To_String_YYYY_MM_DD(DateTime dateTime)
         {
-            var output = $"{dateTime:yyyy-MM-dd}";
+            var template = Instances.DateTimeFormatTemplates.yyyy_MM_dd_Dashed;
+
+            var output = this.Format(
+                dateTime,
+                template);
+
             return output;
         }
 

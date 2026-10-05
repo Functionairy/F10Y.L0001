@@ -25,7 +25,7 @@ namespace F10Y.L0001.L000
         /// <inheritdoc cref="IDateTimeFormats.yyyyMMdd_HHmmss_Dashed"/>
         public string yyyyMMdd_HHmmss_Dashed => $"{{0:{Instances.DateTimeFormats.yyyyMMdd_HHmmss_Dashed}}}";
 
-        /// <inheritdoc cref="IDateTimeFormats.yyyy_MM_dd_Dashed"/>
+        /// <inheritdoc cref="L0000.IDateTimeFormats.yyyy_MM_dd_Dashed"/>
         public string yyyy_MM_dd_Dashed => $"{{0:{Instances.DateTimeFormats.yyyy_MM_dd_Dashed}}}";
 
 #pragma warning restore IDE1006 // Naming Styles

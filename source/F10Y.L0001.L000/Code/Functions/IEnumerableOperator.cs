@@ -20,7 +20,9 @@ namespace F10Y.L0001.L000
 #pragma warning restore IDE1006 // Naming Styles
 
 
-        
+        IEnumerable<string> Empty_OfStrings()
+            => this.Empty<string>();
+
         IEnumerable<IEnumerable<T>> OrderBy_First<T>(IEnumerable<IEnumerable<T>> values)
         {
             var valuesAndFirst = values

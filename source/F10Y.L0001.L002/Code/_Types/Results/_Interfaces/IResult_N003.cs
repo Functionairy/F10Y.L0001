@@ -11,8 +11,8 @@ namespace F10Y.L0001.L002.N003
     [DataTypeMarker]
     public interface IResult<TSuccess, TFailure>
     {
-        public bool Is_Success { get; }
-        public TSuccess Success { get; }
-        public TFailure Failure { get; }
+        bool Is_Success { get; }
+        TSuccess Success { get; }
+        TFailure Failure { get; }
     }
 }

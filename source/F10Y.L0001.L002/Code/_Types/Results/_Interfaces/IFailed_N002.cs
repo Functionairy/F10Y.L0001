@@ -12,7 +12,7 @@ namespace F10Y.L0001.L002.N002
     [DataTypeMarker]
     public interface IFailed<T>
     {
-        public T Value { get; }
-        public IEnumerable<string> Message_Lines { get; }
+        T Value { get; }
+        IEnumerable<string> Message_Lines { get; }
     }
 }

@@ -11,7 +11,7 @@ namespace F10Y.L0001.L002.N001
     [DataTypeMarker]
     public interface IFailed<T>
     {
-        public T Value { get; }
-        public string Message { get; }
+        T Value { get; }
+        string Message { get; }
     }
 }

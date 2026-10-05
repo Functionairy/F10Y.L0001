@@ -11,5 +11,9 @@ namespace F10Y.L0001.L002.N004
     {
         public bool Success { get; set; }
         public T Value { get; set; }
+
+
+        public override string ToString()
+            => $"{this.Success}: {this.Value}";
     }
 }
