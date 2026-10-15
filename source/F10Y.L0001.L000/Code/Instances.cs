@@ -3,50 +3,45 @@ using System;
 
 namespace F10Y.L0001.L000
 {
-    public static class Instances
+#pragma warning disable IDE1006 // Naming Styles
+    public interface Instances :
+#pragma warning restore IDE1006 // Naming Styles
+        Instances_Internal,
+        L0000.Instances_Internal
     {
-        public static L0000.IAssemblyOperator AssemblyOperator => L0000.AssemblyOperator.Instance;
         public static IByteEqualityVerifier ByteEqualityVerifier => L000.ByteEqualityVerifier.Instance;
-        public static IBytesOperator BytesOperator => L000.BytesOperator.Instance;
-        public static L0000.ICancellationTokens CancellationTokens => L0000.CancellationTokens.Instance;
-        public static L0000.ICharacterOperator CharacterOperator => L0000.CharacterOperator.Instance;
-        public static L0000.ICharacters Characters => L0000.Characters.Instance;
-        public static L0000.IComparerOperator ComparerOperator => L0000.ComparerOperator.Instance;
-        public static L0000.IConverter Converter => L0000.Converter.Instance;
         public static IDateTimeFormats DateTimeFormats => L000.DateTimeFormats.Instance;
         public static IDateTimeFormatTemplates DateTimeFormatTemplates => L000.DateTimeFormatTemplates.Instance;
-        public static L0000.IDictionaryOperator DictionaryOperator => L0000.DictionaryOperator.Instance;
-        public static IDirectoryInfoOperator DirectoryInfoOperator => L000.DirectoryInfoOperator.Instance;
+        public static new IDirectoryInfoOperator DirectoryInfoOperator => L000.DirectoryInfoOperator.Instance;
         public static IDocumentationFileOperator DocumentationFileOperator => L000.DocumentationFileOperator.Instance;
         public static IDocumentationXmlFileOperator DocumentationXmlFileOperator => L000.DocumentationXmlFileOperator.Instance;
         public static IDocumentationXmlNodeNames DocumentationXmlNodeNames => L000.DocumentationXmlNodeNames.Instance;
         public static IDocumentationXmlOperator DocumentationXmlOperator => L000.DocumentationXmlOperator.Instance;
-        public static IEnumerableOperator EnumerableOperator => L000.EnumerableOperator.Instance;
-        public static L0000.IEnumerationOperator EnumerationOperator => L0000.EnumerationOperator.Instance;
-        public static L0000.IEqualityComparers EqualityComparers => L0000.EqualityComparers.Instance;
+        public static new IEnumerableOperator EnumerableOperator => L000.EnumerableOperator.Instance;
         public static IExceptionMessageOperator ExceptionMessageOperator => L000.ExceptionMessageOperator.Instance;
-        public static IExceptionOperator ExceptionOperator => L000.ExceptionOperator.Instance;
-        public static L0000.IFileOperator FileOperator => L0000.FileOperator.Instance;
-        public static IFileExtensions FileExtensions => L000.FileExtensions.Instance;
-        public static L0000.IFileNameOperator FileNameOperator => L0000.FileNameOperator.Instance;
-        public static L0000.IFileStreamOperator FileStreamOperator => L0000.FileStreamOperator.Instance;
-        public static L0000.IFileSystemOperator FileSystemOperator => L0000.FileSystemOperator.Instance;
+        public static new IExceptionOperator ExceptionOperator => L000.ExceptionOperator.Instance;
+        public static new IFileExtensions FileExtensions => L000.FileExtensions.Instance;
         public static IFormats Formats => L000.Formats.Instance;
-        public static IFormatTemplates FormatTemplates => L000.FormatTemplates.Instance;
-        public static L0000.IFunctionOperator FunctionOperator => L0000.FunctionOperator.Instance;
-        public static L0000.IFunctions Functions => L0000.Functions.Instance;
-        public static L0000.IHashSetOperator HashSetOperator => L0000.HashSetOperator.Instance;
-        public static L0000.IIndices Indices => L0000.Indices.Instance;
-        public static L0000.INewLines NewLines => L0000.NewLines.Instance;
-        public static L0000.INowOperator NowOperator => L0000.NowOperator.Instance;
-        public static L0000.IPathOperator PathOperator => L0000.PathOperator.Instance;
-        public static IStringOperator StringOperator => L000.StringOperator.Instance;
-        public static IStrings Strings => L000.Strings.Instance;
+        public static new IFormatTemplates FormatTemplates => L000.FormatTemplates.Instance;
+        public static new IStringOperator StringOperator => L000.StringOperator.Instance;
+        public static new IStrings Strings => L000.Strings.Instance;
         public static ISwitchOperator SwitchOperator => L000.SwitchOperator.Instance;
         public static ITexts Texts => L000.Texts.Instance;
         public static ITypeOperator TypeOperator => L000.TypeOperator.Instance;
-        public static IValues Values => L000.Values.Instance;
+        public static new IValues Values => L000.Values.Instance;
+        public static new IVersionOperator VersionOperator => L000.VersionOperator.Instance;
         public static IXDocumentOperator XDocumentOperator => L000.XDocumentOperator.Instance;
-        public static L0000.IXElementOperator XElementOperator => L0000.XElementOperator.Instance;
+    }
+
+
+#pragma warning disable IDE1006 // Naming Styles
+    public interface Instances_Internal
+#pragma warning restore IDE1006 // Naming Styles
+    {
+        public static IBytesOperator BytesOperator => L000.BytesOperator.Instance;
+        public static IFormatTemplates FormatTemplates => L000.FormatTemplates.Instance;
+        public static ITimingOperator TimingOperator => L000.TimingOperator.Instance;
+        public static IUnitSymbols UnitSymbols => L000.UnitSymbols.Instance;
+        public static IVersionOperator VersionOperator => L000.VersionOperator.Instance;
     }
 }
